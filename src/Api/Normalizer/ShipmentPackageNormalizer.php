@@ -57,9 +57,9 @@ class ShipmentPackageNormalizer implements DenormalizerInterface, NormalizerInte
             $object->setUnitPrice($data['UnitPrice']);
             unset($data['UnitPrice']);
         }
-        if (\array_key_exists('Packaging', $data)) {
-            $object->setPackaging($this->denormalizer->denormalize($data['Packaging'], 'ShipStream\\Ups\\Api\\Model\\PackagePackaging', 'json', $context));
-            unset($data['Packaging']);
+        if (\array_key_exists('PackagingType', $data)) {
+            $object->setPackagingType($this->denormalizer->denormalize($data['PackagingType'], 'ShipStream\\Ups\\Api\\Model\\PackagePackaging', 'json', $context));
+            unset($data['PackagingType']);
         }
         if (\array_key_exists('Dimensions', $data)) {
             $object->setDimensions($this->denormalizer->denormalize($data['Dimensions'], 'ShipStream\\Ups\\Api\\Model\\PackageDimensions', 'json', $context));
@@ -134,7 +134,7 @@ class ShipmentPackageNormalizer implements DenormalizerInterface, NormalizerInte
         if ($object->isInitialized('unitPrice') && null !== $object->getUnitPrice()) {
             $data['UnitPrice'] = $object->getUnitPrice();
         }
-        $data['Packaging'] = $this->normalizer->normalize($object->getPackaging(), 'json', $context);
+        $data['PackagingType'] = $this->normalizer->normalize($object->getPackagingType(), 'json', $context);
         if ($object->isInitialized('dimensions') && null !== $object->getDimensions()) {
             $data['Dimensions'] = $this->normalizer->normalize($object->getDimensions(), 'json', $context);
         }

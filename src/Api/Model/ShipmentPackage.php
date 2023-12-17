@@ -41,7 +41,7 @@ class ShipmentPackage extends \ArrayObject
      *
      * @var PackagePackaging
      */
-    protected $packaging;
+    protected $packagingType;
     /**
      * Dimensions information container. Note: Currently dimensions are not applicable to Ground Freight Pricing.  Length + 2*(Width + Height) must be less than or equal to 165 IN or 330 CM. Required for Heavy Goods service. Package Dimension will be ignored for Simple Rate
      *
@@ -203,9 +203,9 @@ class ShipmentPackage extends \ArrayObject
      *
      * @return PackagePackaging
      */
-    public function getPackaging() : PackagePackaging
+    public function getPackagingType() : PackagePackaging
     {
-        return $this->packaging;
+        return $this->packagingType;
     }
     /**
      * Packaging container.  Container for Packaging Type.
@@ -214,10 +214,10 @@ class ShipmentPackage extends \ArrayObject
      *
      * @return self
      */
-    public function setPackaging(PackagePackaging $packaging) : self
+    public function setPackagingType(PackagePackaging $packaging) : self
     {
-        $this->initialized['packaging'] = true;
-        $this->packaging = $packaging;
+        $this->initialized['packagingType'] = true;
+        $this->packagingType = $packaging;
         return $this;
     }
     /**
